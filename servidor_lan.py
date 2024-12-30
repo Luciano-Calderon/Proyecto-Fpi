@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 
 
-app = Flask("servidor-lan")
+app=Flask(__name__)
 
 # salas son los datos que vamos a subir al servidor lan, una lista de diccionarios
 salas = [
@@ -22,7 +22,7 @@ salas = [
 def informacion():
     return jsonify(salas)
 
-
-#debug=True es para ver los cambios a tiempo real, modo de depuración
-#el puerto es completamente mi eleción (4 numeros por alguna razón), por defecto es 5000
-app.run(debug=True, port=2647, host="0.0.0.0")
+if __name__=="__main__":
+    #debug=True es para ver los cambios a tiempo real, modo de depuración
+    #el puerto es completamente mi eleción (4 numeros por alguna razon), por defecto es 5000
+    app.run(debug=True, port=2647, host="0.0.0.0")
